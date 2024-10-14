@@ -11,96 +11,63 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    padding: 10px; /* モバイルでは余白を少し減らす */
+    flex-direction: column; /* 縦方向にレイアウト */
 }
 
 /* ラッパー */
 .wrapper {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
+    flex-direction: column; /* 縦方向に揃える */
+    align-items: center; /* 中央揃え */
+    max-width: 100%; /* モバイル画面に合わせる */
     width: 100%;
 }
 
 /* ヘッダー */
 .header {
-    text-align: left;
+    text-align: center; /* モバイルでは中央揃え */
     color: #e6e5e4;
+    margin-bottom: 20px; /* スペースを追加 */
 }
 
+/* タイトルと説明 */
 .app-title {
-    font-size: 3em;
-    margin-bottom: 20px;
+    font-size: 2em; /* フォントサイズを小さく */
+    margin-bottom: 10px;
 }
 
 .app-description {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    line-height: 1.5;
+    font-size: 1em; /* フォントサイズを小さく */
+    margin-bottom: 15px;
+    line-height: 1.4;
 }
 
 /* ログインボタン */
 .login-button {
     background-color: #e6e5e4;
     color: #25271f;
-    padding: 10px 20px;
+    padding: 8px 16px; /* パディングを少し減らす */
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease;
+    text-decoration: none; /* 下線を消す */
 }
 
 .login-button:hover {
     background-color: #93b4d3;
 }
-/* リンクをノーマルなテキストにする */
-a {
-    text-decoration: none; /* 下線をなくす */
-    color: inherit; /* 親要素の文字色を継承 */
-    cursor: pointer; /* カーソルをポインタに変更 */
-}
-
-/* ホバー時のスタイル（必要に応じて） */
-a:hover {
-    text-decoration: none; /* 下線はそのままなし */
-    color: inherit; /* 文字色もそのまま */
-}
 
 /* 画像 */
 .image-container {
-    max-width: 600px;
-    width: 50%;
+    max-width: 100%; /* モバイルで幅を100%に */
+    width: 100%;
+    margin-bottom: 20px; /* 余白を追加 */
+    text-align:center;
 }
 
 .image-container img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-    .wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .header {
-        margin-bottom: 20px;
-    }
-
-    .app-title {
-        font-size: 2.5em;
-    }
-
-    .app-description {
-        font-size: 1.1em;
-    }
-
-    .image-container {
-        width: 100%;
-    }
+    width: auto; /* 幅を自動にして、コンテナにフィット */
 }
