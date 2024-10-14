@@ -1,38 +1,31 @@
-// ページが読み込まれたときに発火
-document.addEventListener("DOMContentLoaded", () => {
-    const textInput = document.getElementById("text-input");
-    const playbackSpeed = document.getElementById("playback-speed");
-    const speedDisplay = document.getElementById("speed-display");
-    const playButton = document.getElementById("play-sound");
-    const saveButton = document.getElementById("save-audio");
+// 要素の取得
+const textInput = document.getElementById("text-input");
+const playButton = document.getElementById("play-sound");
+const playbackSpeed = document.getElementById("playback-speed");
+const speedDisplay = document.getElementById("speed-display");
 
-    let utterance = new SpeechSynthesisUtterance();
-
-    // 再生速度のスライダーを動かしたときの処理
-    playbackSpeed.addEventListener("input", () => {
-        const speed = playbackSpeed.value;
-        speedDisplay.textContent = speed;
-        utterance.rate = speed; // 音声の再生速度を更新
-    });
-
-    // 「再生」ボタンをクリックしたときの処理
-    playButton.addEventListener("click", () => {
-        if (speechSynthesis.speaking) {
-            speechSynthesis.cancel(); // 既に音声合成中の場合は停止する
-        }
-
-        const text = textInput.value;
-        if (text.trim()) {
-            utterance = new SpeechSynthesisUtterance(text);
-            utterance.rate = playbackSpeed.value;
-            speechSynthesis.speak(utterance);
-        } else {
-            alert("テキストを入力してください。");
-        }
-    });
-
-    // 音声の保存処理（※注意: ブラウザのみでは完全にはサポートされていません）
-    saveButton.addEventListener("click", () => {
-        alert("音声保存機能はこのブラウザでサポートされていません。");
-    });
+// 再生速度の表示更新
+playbackSpeed.addEventListener("input", () => {
+  const speed = playbackSpeed.value;
+  speedDisplay.textContent = speed;
 });
+
+// テキスト読み上げ機能
+playButton.addEventListener("click", () => {
+  // 入力されたテキストを取得
+  const text = textInput.value;
+  if (!text) {
+    alert("テキストを入力してください");
+    return;
+  }
+
+  // SpeechSynthesisUtteranceを作成
+  const utterance = new SpeechSynthesisUtterance(text);
+  
+  // 再生速度を設定
+  utterance.rate = playbackSpeed.value;
+
+  // 音声を再生
+  window.speechSynthesis.speak(utterance);
+});
+
