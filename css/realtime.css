@@ -181,3 +181,11 @@ h3{
     font-size: 4em;
 }
 
+<select id="translation-direction">
+            <option value="ja-en">日本語 → 英語</option>
+            <option value="en-ja">英語 → 日本語</option>
+            label {
+      font-size: 30px; /* ラベルの文字サイズを変更 */
+    }
+        </select>
+
