@@ -174,3 +174,10 @@ footer a:hover {
         height: 100px;
     }
 }
+
+h3{
+    padding: 0;
+    margin: 0;
+    font-size: 3em;
+}
+
