@@ -125,6 +125,6 @@ button {
         min-width: 150px; /* 最小幅を150pxに設定 */
     }
     .button-text {
-        font-size: 3vw; /* ビュー幅の3% */
+        font-size: 7vw; /* ビュー幅の3% */
     }
 }
