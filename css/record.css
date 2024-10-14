@@ -27,7 +27,7 @@ header {
 h1 {
     padding: 0;
     margin: 0;
-    font-size: 3vw; /* 画面の幅に応じたフォントサイズ */
+    font-size: 5vw; /* 画面の幅に応じたフォントサイズ */
 }
 
 /* メインのレイアウト */
@@ -41,7 +41,7 @@ main {
 }
 
 h2 {
-    font-size: 1.5em;
+    font-size: 3em;
     color: #769cbf;
     margin-bottom: 1vh;
 }
@@ -104,7 +104,7 @@ footer p {
 footer a {
     color: #e6e5e4;
     text-decoration: none;
-    font-size: 1em;
+    font-size: 2em;
 }
 
 footer a:hover {
