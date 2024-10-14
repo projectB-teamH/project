@@ -10,24 +10,30 @@
     <header>
         <h1>聴覚障碍者に向けた会話補助アプリ</h1>
     </header>
-
     <main>
         <h2>テキスト読み上げ</h2>
-        <section class="controls-section">
+        <section class="transcription-section">
             <textarea id="text-input" rows="5" cols="50" placeholder="テキストをここに入力してください。"></textarea>
+        </section>
+            <button id="play-sound">再生</button>
             <div class="settings">
                 <label for="playback-speed">再生速度:</label>
                 <input type="range" id="playback-speed" min="0" max="2" step="0.1" value="1">
                 <span id="speed-display">1.0</span>
             </div>
-            <button id="play-sound">再生</button>
-        </section>
+
     </main>
-    <!-- JSファイルの読み込み -->
-    <script src="talk.js"></script>
+    <script src="script.js"></script>
 
     <footer>
-        <p><a href="choice.html">TOPページへ➔</a></p>
+
+    <p>
+		<a href="../choice/index.html" >
+		<!--  aタグで囲われたものをリンクボタンにする href="ここにリンク先のアドレス(パス)を記述" -->
+	
+		TOPページへ➔
+		</a>
+	</p>
     </footer>
     
 
