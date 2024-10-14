@@ -181,8 +181,27 @@ h3{
     font-size: 2.5em;
 
 
-<select 2em
-    </select>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翻訳方向</title>
+  <style>
+    /* ドロップダウンメニューのオプションの文字サイズを変更 */
+    option {
+      font-size: 20px; /* オプションの文字の大きさを20pxに変更 */
+    }
+  </style>
+</head>
+<body>
+  <label for="translation-direction">翻訳方向:</label>
+  <select id="translation-direction">
+    <option value="ja-en">日本語 → 英語</option>
+    <option value="en-ja">英語 → 日本語</option>
+  </select>
+</body>
+</html>
 }
+
 
 
