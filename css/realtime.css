@@ -105,15 +105,15 @@ button:hover {
 }
 
 .settings label {
-    font-size: 1em;
+    font-size: 3em;
 }
 
 .settings input[type="range"] {
-    width: 150px;
+    width: 250px;
 }
 
 #speed-display {
-    font-size: 1em;
+    font-size: 3em;
 }
 
 /* フッター */
