@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const playbackSpeed = document.getElementById("playback-speed");
     const speedDisplay = document.getElementById("speed-display");
     const playButton = document.getElementById("play-sound");
-    const saveButton = document.getElementById("save-audio");
     const reverseButton = document.getElementById("reverse-text");
 
     let utterance = new SpeechSynthesisUtterance();
@@ -29,11 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             alert("テキストを入力してください。");
         }
-    });
-
-    // 音声の保存処理（※注意: ブラウザのみでは完全にはサポートされていません）
-    saveButton.addEventListener("click", () => {
-        alert("音声保存機能はこのブラウザでサポートされていません。");
     });
 
     // 「文字を反転」ボタンの処理
