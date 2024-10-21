@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>聴覚障碍者に向けた会話補助アプリ</title>
-    <link rel="stylesheet" href="css/realtime.css">
+    <link rel="stylesheet" href="realtime.css">
 </head>
 <body>
     <header>
@@ -21,9 +21,12 @@
 
         <!-- 音声認識コントロール -->
         <div class="botan">
-            <button id="play-transcription">開始</button>
-            <button id="stop-transcription" disabled>停止</button>
+            <button id="play-transcription">音声認識開始</button>
+            <button id="stop-transcription" disabled>音声認識停止</button>
         </div>
+
+        <p><a href="realcolor.html">声紋ページへ➔</a></p>
+
 
         <!-- 翻訳設定 -->
         <h3>翻訳設定</h3>
@@ -38,7 +41,6 @@
             <h2>翻訳結果</h2>
             <textarea id="translation" rows="10" cols="50" placeholder="ここに翻訳結果が表示されます" readonly></textarea>
         </section>
-
     </main>
 
     <!-- JSファイルの読み込み -->
