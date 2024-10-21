@@ -191,7 +191,9 @@ select {
     font-size: 1em;
     resize: none;
 }
-
+.reversed {
+    transform: rotate(180deg);
+}
 
 
 
