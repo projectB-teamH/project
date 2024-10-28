@@ -114,43 +114,41 @@ window.onload = function() {
 
     // 翻訳APIを呼び出す関数
     function translateText(text, direction) {
-    return new Promise((resolve, reject) => {
-        const apiKey = 'AIzaSyCDvA-j10o8HeWZFJ7TbcdpSSRyxiwdd7w';  // 有効なAPIキーを確認
-        let targetLanguage = '';
+        return new Promise((resolve, reject) => {
+            const apiKey = 'AIzaSyCDvA-j10o8HeWZFJ7TbcdpSSRyxiwdd7w';  // Google Cloud Translation APIキー
+            let targetLanguage = '';
 
-        // 翻訳の方向に基づいてターゲット言語を設定
-        if (direction === 'ja-en') {
-            targetLanguage = 'en';
-        } else if (direction === 'en-ja') {
-            targetLanguage = 'ja';
-        }
-
-        const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
-
-        const body = {
-            q: text,
-            target: targetLanguage,
-            source: direction === 'ja-en' ? 'ja' : 'en',
-            format: 'text'
-        };
-
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(body)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data && data.data && data.data.translations && data.data.translations[0].translatedText) {
-                resolve(data.data.translations[0].translatedText);
-            } else {
-                reject("翻訳結果がありません");
+            if (direction === 'ja-en') {
+                targetLanguage = 'en';
+            } else if (direction === 'en-ja') {
+                targetLanguage = 'ja';
             }
-        })
-        .catch(error => {
-            reject("翻訳中にエラーが発生しました: " + error);
+
+            const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
+            const body = {
+                q: text,
+                target: targetLanguage,
+                format: 'text'
+            };
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.data && data.data.translations && data.data.translations[0].translatedText) {
+                    resolve(data.data.translations[0].translatedText);
+                } else {
+                    reject("翻訳結果がありません");
+                }
+            })
+            .catch(error => {
+                reject("翻訳中にエラーが発生しました: " + error);
+            });
         });
-    });
-}
+    }
+};
