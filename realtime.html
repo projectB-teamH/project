@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>リアルタイム音声認識と翻訳</title>
-    <link rel="stylesheet" href="css/realtime.css">
+    <link rel="stylesheet" href="realtime.css">
 </head>
 <body>
     <header>
@@ -29,6 +29,7 @@
 
         <!-- 翻訳設定 -->
         <h3>翻訳設定</h3>
+        <label for="translation-direction">翻訳方向:</label>
         <select id="translation-direction">
         <div class="botan">
             <option value="ja-en">日本語 → 英語</option>
@@ -42,6 +43,9 @@
             <h2>翻訳結果</h2>
             <textarea id="translation" rows="10" cols="50" placeholder="ここに翻訳結果が表示されます" readonly></textarea>
         </section>
+
+        <!-- 保存ボタン -->
+        <button id="save-transcription">文字起こしを保存</button>
     </main>
 
     <!-- JSファイルの読み込み -->
