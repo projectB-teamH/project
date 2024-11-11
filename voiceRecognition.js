@@ -75,27 +75,6 @@ window.onload = function() {
         }
     };
 
-    // 保存機能
-    saveBtn.onclick = function() {
-        const transcriptionContent = resultText.value;
-        if (transcriptionContent) {
-            const currentDateTime = new Date().toLocaleString();
-            const savedTranscription = {
-                id: new Date().getTime(),
-                content: transcriptionContent,
-                date: currentDateTime
-            };
-
-            let savedData = JSON.parse(localStorage.getItem('transcriptions')) || [];
-            savedData.push(savedTranscription);
-
-            localStorage.setItem('transcriptions', JSON.stringify(savedData));
-            alert("文字起こしデータを保存しました！");
-        } else {
-            alert("保存する文字起こしデータがありません");
-        }
-    };
-
     // 翻訳機能
     translateBtn.onclick = function() {
         const transcriptionContent = resultText.value;
