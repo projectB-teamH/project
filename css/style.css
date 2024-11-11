@@ -80,7 +80,7 @@ main {
 }
 
 .button-text {
-    font-size: 2vw; /* ビュー幅の2% */
+    font-size: 3vw; /* ビュー幅の2% */
     color: #333;
     text-decoration: none;
     word-wrap: break-word; /* 長い単語が折り返されないようにする */
