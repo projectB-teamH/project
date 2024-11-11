@@ -61,7 +61,7 @@ form {
 }
 
 input[type="file"] {
-    font-size: 1.8vw;
+    font-size: 3vw;
     padding: 1.5vh 1vw;
     border: 0.2vw solid #ccc;
     border-radius: 1vw;
