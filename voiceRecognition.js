@@ -1,7 +1,6 @@
 window.onload = function() {
     const startBtn = document.getElementById('play-transcription');
     const stopBtn = document.getElementById('stop-transcription');
-    const saveBtn = document.getElementById('save-transcription');
     const translateBtn = document.getElementById('translate-text');
     const translationDirection = document.getElementById('translation-direction');
     const resultText = document.getElementById('transcription');
@@ -9,6 +8,7 @@ window.onload = function() {
 
     let recognition;
     let isRecognizing = false;
+    let finalTranscript = ''; // 全ての確定結果を保持する変数
 
     // Web Speech APIを使った音声認識のセットアップ
     if ('webkitSpeechRecognition' in window) {
@@ -21,7 +21,7 @@ window.onload = function() {
     }
 
     recognition.lang = 'ja-JP';  // 日本語に設定
-    recognition.interimResults = false;  // 確定結果のみを取得
+    recognition.interimResults = true;  // 中間結果を取得するように設定
     recognition.maxAlternatives = 1;
 
     // 音声認識開始
@@ -29,7 +29,6 @@ window.onload = function() {
         if (!isRecognizing) {
             recognition.start();
             console.log("音声認識を開始しました");
-            resultText.value = ''; // 初期化
             isRecognizing = true;
             startBtn.disabled = true;
             stopBtn.disabled = false;
@@ -47,11 +46,23 @@ window.onload = function() {
         }
     };
 
-    // 音声認識結果をテキストエリアに表示
+    // 音声認識結果をリアルタイムでテキストエリアに追加表示
     recognition.onresult = function(event) {
-        const transcript = event.results[0][0].transcript;
-        console.log("音声認識結果:", transcript);
-        resultText.value += ' ' + transcript;
+        let interimTranscript = '';  // 中間結果用
+
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+            const transcript = event.results[i][0].transcript;
+
+            if (event.results[i].isFinal) {
+                finalTranscript += transcript + ' ';  // 確定結果を追加
+            } else {
+                interimTranscript += transcript;  // 中間結果を追加
+            }
+        }
+
+        // テキストエリアに既存の確定結果 + 中間結果をリアルタイムで表示
+        resultText.value = finalTranscript + interimTranscript;
+        resultText.scrollTop = resultText.scrollHeight;  // スクロールを常に下に維持
     };
 
     // 音声認識が終了したら自動的に再開（ユーザーが停止するまで）
